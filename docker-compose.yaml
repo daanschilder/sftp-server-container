@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  sftp-server:
+    image: sftp-server
+    build: 
+      context: .
+      args:
+        USER_NAME: ${SFTP_USER}
+        USER_PASSWORD: ${SFTP_PASSWORD}
+      dockerfile: Dockerfile
+    ports:
+      - "${SFTP_PORT}:22"
+    volumes:
+      - ./upload:/mount/${SFTP_USER}/upload
+    command: /usr/sbin/sshd -D

@@ -1,2 +1,5 @@
 # sftp-server-container
-sftp server
+modify the variables in .env as required and run:
+> podman compose up
+or:
+> docker compose up
